@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const notes = require('../routes/notes.js')
-
-const savedNotes = require('../db/db.json')
+const fs = require('fs');
 
 router.use(notes);
+
+const savedNotes = require('../db/db.json')
 
 router.get('/notes', (req, res) => {
     res.json(savedNotes);
